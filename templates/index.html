@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+    
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7fafc;
+            color: #2d3748;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3182ce;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #3182ce;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f7fafc;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        label {
+            font-size: 1.1rem;
+            font-weight: bold;
+            width: 250px;
+            margin-right: 10px;
+        }
+
+        input[type="number"] {
+            padding: 12px;
+            width: 30%;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: #3182ce;
+            outline: none;
+        }
+
+        button {
+            background-color: #3182ce;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2b6cb0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-group label {
+                width: auto;
+                margin-bottom: 10px;
+            }
+
+            input[type="number"] {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+                padding: 12px;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Recommended KDramas</h1>
+        
+        {% if dramas %}
+        <form action="/detail" method="post">
+            <div class="form-group">
+                <label for="drama_number">Enter the number of the drama you want to choose:</label>
+                <input type="number" id="drama_number" name="drama_number" min="1" max="{{ dramas|length }}" required>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        
+            
+            <p class="text-center">Choose a drama from the table below by its number:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Year of Release</th>
+                        <th>Number of Episodes</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for drama in dramas %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ drama['Name'] }}</td>
+                            <td>{{ drama['Year of release'] }}</td>
+                            <td>{{ drama['Number of Episodes'] }}</td>
+                            <td>{{ drama['Rating'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+        {% else %}
+            <p class="text-center">{{ message }}</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

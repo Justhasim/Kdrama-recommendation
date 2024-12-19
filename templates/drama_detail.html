@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drama Details</title>
+    
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7fafc;
+            color: #2d3748;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3182ce;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #3182ce;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Flexbox layout for Synopsis and Poster */
+        .details-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .details-left {
+            flex: 1;
+            max-width: 60%; /* Ensures that the text takes up less space than the image */
+        }
+
+        .poster-container {
+            flex: 1;
+            max-width: 35%;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .no-poster {
+            font-style: italic;
+            color: #6b7280;
+            margin-top: 20px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #3182ce;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #2b6cb0;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .details-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .details-left {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .poster-container {
+                max-width: 100%;
+                order: -1; /* Moves the image to the top */
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>{{ name }}</h1>
+        <div class="details-wrapper">
+            <!-- Left Side: Synopsis and Other Details -->
+            <div class="details-left">
+                <p><strong>Year of Release:</strong> {{ year }}</p>
+                <p><strong>Number of Episodes:</strong> {{ episodes }}</p>
+                <p><strong>Rating:</strong> {{ rating }}</p>
+                <h3>Synopsis:</h3>
+                <p>{{ synopsis }}</p>
+            </div>
+
+            <!-- Right Side: Poster Image -->
+            <div class="poster-container">
+                {% if poster_url %}
+                    <img src="{{ poster_url }}" alt="Poster">
+                {% else %}
+                    <p class="no-poster">No poster available.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <a href="/" class="back-link">Go Back</a>
+    </div>
+
+</body>
+</html>
