@@ -23,7 +23,6 @@ https://kdrama-recom-m18lsyme7-chaudhary-hasims-projects.vercel.app/
 - **Backend**: Python Flask  
 - **Frontend**: Flask Templates (HTML, Jinja2, CSS)  
 - **API Integration**: TMDB API for fetching K-Drama details  
-- **Database**: SQLite (for storing user preferences, if needed)  
 
 ---
 
