@@ -14,7 +14,7 @@ df['Genre'] = df['Genre'].apply(lambda x: [genre.strip().lower() for genre in x]
 df['Rating'] = pd.to_numeric(df['Rating'], errors='coerce')
 
 # TMDB API Key
-API_KEY = 'b9117333df86153373d3ea62657f6b3c'
+API_KEY = 'Your_API_KEY'
 
 def get_tmdb_poster(drama_name):
     search_url = f'https://api.themoviedb.org/3/search/tv?api_key={API_KEY}&query={drama_name.replace(" ", "+")}'
