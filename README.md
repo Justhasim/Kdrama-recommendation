@@ -4,7 +4,9 @@
 
 A Python Flask-based web application where users can input their preferred **genre** and **rating** to get a list of recommended K-Dramas. Users can then choose a specific drama to view detailed information such as the synopsis, poster, and more. The app uses the **TMDB API** to fetch dynamic data.  
 
-# Demo : https://kdrama-recom-m18lsyme7-chaudhary-hasims-projects.vercel.app/
+# Demo : 
+
+https://kdrama-recom-m18lsyme7-chaudhary-hasims-projects.vercel.app/
 
 ---
 
