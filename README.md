@@ -68,11 +68,9 @@ Kdrama-recommendation/
 ├── static/  
 │   └── css/  
 ├── templates/  
-│   ├── base.html  
+│   ├── drama_details.html  
 │   ├── home.html  
-│   ├── genre.html  
-│   ├── list.html  
-│   └── details.html  
+│   ├── index.html   
 ├── app.py  
 ├── requirements.txt  
 ├── .env  
@@ -108,15 +106,6 @@ Search for additional dramas based on new preferences.
 
 
 
-
----
-
-📜 License
-
-This project is licensed under the MIT License.
-
-
----
 
 🤝 Contributing
 
