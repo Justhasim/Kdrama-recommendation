@@ -145,5 +145,3 @@ GitHub: Justhasim
 
 ⭐ Don't forget to star the repository if you find it helpful!
 
-This updated version highlights the genre and rating-based functionality and the step-by-step workflow of the app. Let me know if you'd like further customization!
-
